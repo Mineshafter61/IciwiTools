@@ -1,11 +1,13 @@
 # This is a sample Python script.
 
 import json
+import math
 
-import farecharts
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 from dijkstra import *
+
+fare_formula = lambda x: round((math.floor((2 * math.sqrt(math.floor(x / 100)) * 0.12) * 100)) / 100 + 0.6, 2)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -76,17 +78,18 @@ if __name__ == '__main__':
       h.insert(Node(station_name, distance, next_station))
     h.clean()
 
-
   ### == OUTPUT == ###
 
   final_dict = get_all_distances(h)
+  for key in final_dict:
+    for key1 in final_dict[key]:
+      final_dict[key][key1] = fare_formula(final_dict[key][key1])  # apply fare formula
 
   json_object = json.dumps(final_dict, indent=2)
 
   with open("fares.json", "w") as outfile:
     outfile.write(json_object)
 
-
   ### == GENERATE FARE CHARTS == ###
 
-  farecharts.run()
+  # farecharts.run()
