@@ -6,6 +6,7 @@ import math
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 from dijkstra import *
+import farecharts
 
 fare_formula = lambda x: round((math.floor((2 * math.sqrt(math.floor(x / 100)) * 0.12) * 100)) / 100 + 0.6, 2)
 
@@ -92,4 +93,4 @@ if __name__ == '__main__':
 
   ### == GENERATE FARE CHARTS == ###
 
-  # farecharts.run()
+  farecharts.run()
