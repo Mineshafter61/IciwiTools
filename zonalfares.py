@@ -23,7 +23,10 @@ def generate(operator: str):
         i_, j_ = str(i), str(j)
 
       within = float(input('\nWITHIN SUB-ZONES fare from Zone {0} -> Zone {1}: '.format(i_, j_)))
-      across = float(input('ACROSS SUB-ZONES fare from Zone {0} -> Zone {1}: '.format(i_, j_)))
+      if sub_zones > 1:
+        across = float(input('ACROSS SUB-ZONES fare from Zone {0} -> Zone {1}: '.format(i_, j_)))
+      else:
+        across = 0
 
       # sub-zones
       for s in range(1, sub_zones + 1):

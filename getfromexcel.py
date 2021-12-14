@@ -17,11 +17,13 @@ def main():
     new_line = []
     for item in records:
       station = [item[key] for key in item]
-      name = station[0].replace(' ', '')
-      distance = str(station[1])
-      if distance.replace('.', '', 1).isdigit():  # check if float
-        distance = float(distance)
-        new_line.append([name, distance])
+      if type(station[0]) != float:
+        print(station[0])
+        name = station[0].replace(' ', '')
+        distance = str(station[1])
+        if distance.replace('.', '', 1).isdigit():  # check if float
+          distance = float(distance)
+          new_line.append([name, distance])
 
     if new_line:
       new_lines.append(new_line)
