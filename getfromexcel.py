@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def main():
+def run():
   df0 = pd.read_excel('TrainDistances.xlsx', sheet_name=0)
   df1 = pd.read_excel('TrainDistances.xlsx', sheet_name=1)
   df2 = pd.read_excel('TrainDistances.xlsx', sheet_name=2)
@@ -32,7 +32,6 @@ def main():
 
 
 if __name__ == '__main__':
-  m = main()
-  print(m)
+  print(run())
   # for i in m:
   #   print(i)
